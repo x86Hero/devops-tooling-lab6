@@ -9,8 +9,10 @@ pipeline {
   stages {
     stage('Clean') {
       steps{
-        sh 'echo "my hook works!"'
-        sh 'docker-compose --help'
+        sh 'docker system prune -a || true'
+        sh 'docker builder prune -a || true'
+        sh 'docker rm -f $(docker ps -aq) || true'
+        sh 'docker rmi -f $(docker images) || true'
       }
     }
     stage('Test') {
