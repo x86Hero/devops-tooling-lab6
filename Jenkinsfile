@@ -13,28 +13,17 @@ pipeline {
         sh 'docker-compose --help'
       }
     }
-    /*stage('Build') {
-      steps{
-        sh 'docker build -t ashqa/nginx-custom .'
-      }
-    }
-    stage('Deploy') {
-      steps{
-        sh 'docker run -d -p 80:80 --name nginx --mount type=bind,source=${WORKSPACE}/nginx.conf,target=/etc/nginx/nginx.conf ashqa/nginx-custom'
-        sh 'echo ${SECRET_VAR}'
-      }
-    }
     stage('Test') {
       steps{
-        sh 'sleep 5'
-        sh 'curl localhost'
+        sh 'cd Task1'
+        sh 'docker-compose up'
       }
-    }
-    stage('Update Registry') {
+    /*stage('Update Registry') {
       steps {
         sh 'docker login --username="${DOCKER_HUB_USR}" --password="${DOCKER_HUB_PSW}"'
         sh 'docker push ashqa/nginx-custom'
       }
     }*/
+    }
   }
 }
