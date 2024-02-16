@@ -15,7 +15,7 @@ pipeline {
     }
     stage('Test') {
       steps{
-        sh 'docker compose up -d -f ${WORKSPACE}/Task1/docker-compose.yaml'
+        sh 'cd ${WORKSPACE}/Task1 && docker-compose up -d'
       }
     /*stage('Update Registry') {
       steps {
