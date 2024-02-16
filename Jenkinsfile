@@ -19,6 +19,7 @@ pipeline {
       steps{
         sh 'cd ${WORKSPACE}/Task1 && docker-compose up -d'
       }
+    }
     stage('Update Registry') {
       steps {
         sh 'docker login --username="${DOCKER_HUB_USR}" --password="${DOCKER_HUB_PSW}"'
