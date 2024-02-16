@@ -2,14 +2,15 @@ pipeline {
   agent {
     label "worker-01"
   }
-  /*environment {
+  environment {
     SECRET_VAR = credentials('secret_text')
     DOCKER_HUB = credentials('docker_creds')
-  }*/
+  }
   stages {
     stage('Clean') {
       steps{
         sh 'echo "my hook works!"'
+        sh 'docker-compose --help'
       }
     }
     /*stage('Build') {
