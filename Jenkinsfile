@@ -15,8 +15,8 @@ pipeline {
     }
     stage('Test') {
       steps{
-        sh 'cd Task1'
-        sh 'docker-compose up'
+        sh 'cd ${WORKSPACE}/Task1'
+        sh 'docker-compose up -d'
       }
     /*stage('Update Registry') {
       steps {
