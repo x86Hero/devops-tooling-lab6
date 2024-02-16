@@ -19,12 +19,12 @@ pipeline {
       steps{
         sh 'cd ${WORKSPACE}/Task1 && docker-compose up -d'
       }
-    /*stage('Update Registry') {
+    stage('Update Registry') {
       steps {
         sh 'docker login --username="${DOCKER_HUB_USR}" --password="${DOCKER_HUB_PSW}"'
-        sh 'docker push ashqa/nginx-custom'
+        sh 'docker push ashqa/flask-app:latest'
       }
-    }*/
+    }
     }
   }
 }
