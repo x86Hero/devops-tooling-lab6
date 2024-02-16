@@ -9,8 +9,8 @@ pipeline {
   stages {
     stage('Clean') {
       steps{
-        sh 'docker system prune -a || true'
-        sh 'docker builder prune -a || true'
+        sh 'docker system prune -a -f || true'
+        sh 'docker builder prune -a -f || true'
         sh 'docker rm -f $(docker ps -aq) || true'
         sh 'docker rmi -f $(docker images) || true'
       }
