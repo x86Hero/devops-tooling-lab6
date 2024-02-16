@@ -25,6 +25,5 @@ pipeline {
         sh 'docker push ashqa/flask-app:latest'
       }
     }
-    }
   }
 }
